@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+       #sp{
+           display: block;
+           width: 330px;
+           height: 300px;
+           margin: 30px auto;
+           font-size: 200px;
+
+           text-align: center;
+
+       }
+       #p1{
+        display: block;
+           width: 330px;
+           height: 300px;
+           margin: 30px auto;
+           font-size: 80px;
+           text-align: center;
+       }
+   </style>
+</head>
+
+<body>
+    <span id="sp"></span>
+    <p id="p1"></p>
+    <script>
+        let fn2 = () => {
+            var r = parseInt(Math.random() * (255 - 1 + 1) + 1)
+            var g = parseInt(Math.random() * (255 - 1 + 1) + 1)
+            var b = parseInt(Math.random() * (255 - 1 + 1) + 1)
+            var body = document.querySelector('body')
+          
+            return ('rgb(' + r + ',' + g + ',' + b + ')')
+        }
+
+
+        var a = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
+            'u', 'v', 'w', 'x', 'y', 'z'
+        ]
+        var sp = document.getElementById('sp')
+        var p1 = document.getElementById('p1')
+        
+        agean()
+
+        function agean() {
+            var mathz = parseInt(Math.random() * (25 - 0 + 1) + 0)
+            var res = a[mathz]
+            sp.innerText = res
+            sp.style.color = (fn2())
+            document.onkeyup = function (ke) {
+
+                if (ke.keyCode == 27) {
+                    p1.innerText = '结束'
+
+
+                } else {
+                    if (mathz + 65 === ke.keyCode) {
+                        p1.innerText = '答对了'
+                        p1.style.color=('greenyellow')
+                        agean()
+
+                    } else {
+                        p1.innerText = '答错了'
+                        p1.style.color=('sienna')
+                    }
+                }
+            }
+        }
+
+
+        
+     
+    </script>
+
+
+
+</body>
+
+</html>

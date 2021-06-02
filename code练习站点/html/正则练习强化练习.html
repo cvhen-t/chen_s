@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="put">
+    <button id="btn">校验</button>
+    <div id="res"></div>
+    <script>
+        // 1. 写一个验证 0 ～ 666 数字的正则
+        var shou = /^[6][6][0-6]$|^[6][0-5][0-9]$|^[1-5][0-9][0-9]$|^[1-9][0-9]$|^[0-9]$/
+
+        btn.onclick = function () {
+            var a = put.value
+
+            var r = shou.test(a)
+          
+            res.innerHTML=(r)
+            
+        }
+    </script>
+</body>
+
+</html>

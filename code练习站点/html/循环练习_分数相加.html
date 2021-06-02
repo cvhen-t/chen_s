@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=sc, initial-scale=1.0"> -->
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script>
+
+// 求出1/1-1/2+1/3-1/4…..1/100的和
+
+    var res_o=0
+    var jie_o=0
+    var res_j=0
+    var jie_j=0
+
+    var jie_q = 0
+for(var i =1 ; i<=100;i++){
+    if(i%2==0){
+        res_o=1/i
+      
+        jie_o +=res_o
+      
+        // console.log(i,res_o,jie_o)
+    }else if(i%2==1){
+        res_j=1/i
+      
+      jie_j +=res_j
+    
+    //   console.log(i,res_j,jie_j)
+    }
+  
+   
+
+}
+
+jie_q = jie_j-jie_o
+
+
+console.log(jie_q)
+
+
+    </script> -->
+
+    <script>
+
+ var s =0
+for( i=1 ; i<=100;i++){
+    
+s= Math.pow(1,i) + Math.pow(-1,(i-1))
+
+console.log(s)
+
+}
+
+
+
+
+
+    </script>
+</body>
+</html> 

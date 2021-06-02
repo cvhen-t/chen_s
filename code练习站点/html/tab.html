@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 常规reset动作 */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        ul,
+        ol,
+        li {
+            list-style-type: none;
+        }
+
+        #box {
+            width: 800px;
+            height: 700px;
+            border: 1px solid black;
+            margin: 50px auto;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        #box>ul {
+            width: 100%;
+            height: 60px;
+            /* background-color: coral; */
+            display: flex;
+        }
+
+        #box>ul>li {
+            /* width: 100%; */
+            flex-grow: 1;
+            height: 100%;
+            background-color: orange;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        #box>ul>li.active {
+            background-color: darkorange;
+        }
+
+        #box>ol {
+            width: 100%;
+            /* height: 50px; */
+            flex-grow: 1;
+            background-color: burlywood;
+            position: relative;
+        }
+
+        #box>ol>li {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 50px;
+            background-color: steelblue;
+        }
+
+        #box>ol>li.active {
+            display: flex;
+            background: url(../img/1.jpg)no-repeat;
+            background-size: 100% 100%;
+        }
+
+        #box>ol>li.active1 {
+            display: flex;
+            background: url(../img/2.jpg) no-repeat;
+            background-size: 100% 100%;
+        }
+
+        #box>ol>li.active2 {
+            display: flex;
+            background: url(../img/3.jpg)no-repeat;
+            background-size: 100% 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <ul id="tabs">
+            <li class="active">瘦子</li>
+            <li>胖子</li>
+            <li>傻子</li>
+        </ul>
+        <ol id="cons">
+            <li class="active"></li>
+            <li>2</li>
+            <li>3</li>
+        </ol>
+    </div>
+    <script>
+        // 找出所有的tab标签
+        var ulli = document.querySelectorAll("#tabs>li")
+
+        // 找出所有的content内容
+        var olli = document.querySelectorAll("#cons>li")
+        console.log(ulli)
+        ulli.forEach(function (e, i) {
+            e.setAttribute("inx", i)
+
+            e.onclick = function () {
+                ulli.forEach(function (r) {
+                    console.log(1)
+                    r.classList.remove("active")
+                })
+
+
+                olli.forEach(function (e) {
+                    e.classList.remove("active")
+                    e.classList.remove("active1")
+                    e.classList.remove("active2")
+                })
+
+                e.classList.add('active')
+
+                var xiab = e.getAttribute('inx')
+
+                if (xiab == 0) {
+                    olli[xiab].classList.add('active')
+                    console.log(xiab)
+                }
+                if (xiab == 1) {
+                    olli[xiab].classList.add('active1')
+                }
+                if (xiab == 2) {
+                    olli[xiab].classList.add('active2')
+                }
+                console.log(xiab)
+            }
+
+        })
+    </script>
+
+
+
+
+
+
+
+
+</body>
+
+</html>

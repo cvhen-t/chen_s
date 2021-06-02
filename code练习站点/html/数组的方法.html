@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+//             push：最后一位添加   pop :删除最后一个  shift：删除第一个  unshift：添加第一个  splice：可以指定位置删除，添加 替换
+// 返回值：增加返回新数组的长度 删除方法返回值为：删除元素 splice：返回删除元素组成的数组
+
+// 判断数组array.isarray:判断是否为数组   
+
+
+        // var arr = [0,1,2,3,4,5]
+        // arr.push(6)
+        // var len = arr.push(7,8,9)
+        // console.log(arr,len,arr.length);//[1-9],9,9
+
+        // console.log(arr.pop(),arr)//5 [1,2,3,4]  
+
+        // var len = arr.unshift(0,-1)
+        // // console.log(len,arr);//7 [0,-1...]
+
+        // // var firstElement = arr.shift()
+        // // console.log(arr,firstElement);//[2345],1
+
+         /* 在任意位置插入、删除、覆盖 */    splice
+        var ret = arr.splice(4,1,3.5,3.7)
+        console.log(ret);//[4] 由被删除元素组成的新数组
+        console.log(arr);//[0123.53.75]
+
+        // // var arr = [0,1,2,    3,4,   5]
+        // //插入3.5在正确位置
+        // // arr.splice(4,0,3.5)
+
+        // // 删除 2 3
+        // // arr.splice(2,2)
+
+        // // 用3.5 4.5 分别覆盖 3 4
+        // // arr.splice(3,2,3.5,4.5)
+        // // console.log(arr);
+
+        /* 反转 */                          reverse
+        var arr = [0,1,2,3,4,5]
+        console.log(arr.reverse(),arr)//[543210],[543210]
+
+        // // var arr = [0.12345,3,1,4,5,9,11,21,123,33,2,6,8,7,0]
+        // // // var a = arr.sort()
+        // // // console.log(a);//
+        // // // console.log(a===arr);//true
+
+        // // // 升序算法函数
+        // // function compare(a,b) {
+        // //     // 升序排列
+        // //     return a - b
+        // // }
+        // // // 降序算法函数
+        // // var compare2 = function (a,b){
+        // //     return b - a
+        // // }
+        // // // arr.sort(compare)
+        // // // arr.sort(compare2)
+        
+
+        // // 谁长谁就大
+        // arr.sort(function (a,b){
+        //     return a.toString().length - b.toString().length
+        // })
+        // console.log(arr);
+
+
+        var p1 = {name:"张全蛋",age:18}
+        var p2 = {name:"张双蛋123",age:36}
+        var p3 = {name:"张无旦123456",age:3}
+        var arr = [p1,p2,p3]
+
+        // 比较算法1：谁的名字长谁就大
+        function fn1(a,b) {
+            return a.name.length - b.name.length
+        }
+
+        // 比较算法2：比谁的年龄大
+        var fn2 = function (a,b) {
+            return a.age - b.age
+        }
+
+        // 方式1：填写比较函数的名字
+        // arr.sort(fn1)
+
+        //方式2：填写匿名的比较函数
+        // arr.sort(function (a,b) {
+        //     return b.name.length - a.name.length
+        // })
+        
+        
+        // // arr.sort(fn2)
+        // arr.sort(function (a,b) {
+        //     return b.age - a.age
+        // })
+
+        // console.log(arr);
+
+
+        /* 两个数组拼接 */
+        var arr1 = [0,1,2,3,4,5]
+        var arr2 = [1.5,2.5,3.5]
+
+        var arr3 = arr2.concat(arr1)
+        console.log(arr1,arr2,arr3);
+
+        /* 
+        join() 方法将一个数组（或一个类数组对象）的所有元素连接成一个字符串并返回这个字符串。如果数组只有一个项目，那么将返回该项目而不使用分隔符。
+        */
+        var arr = [0,1,2,3,4,5]
+        var str = arr.join("-")
+        console.log(str);
+
+        /* indexOf()方法返回在数组中可以找到一个给定元素的第一个索引，如果不存在，则返回-1。 */
+        var arr = [0,1,2,33,4,5]
+        console.log(arr.indexOf(33));//3 第一次找到33的下标/序号
+        console.log(arr.indexOf(33,4));//-1
+        console.log(arr.indexOf(128));//-1
+        
+
+    </script>
+</body>
+</html>

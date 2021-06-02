@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var a = [1, 5, 3]
+
+        function some(call,arr) {
+            var j = false
+
+            for (i = 0; i < arr.length; i++) {
+                if (j) return j
+                j = call(a[i], i, arr) //相当于：function(a[i], i, arr)
+            } 
+            return j
+        }
+        var res = some(function (item, index, arr) {
+
+            return item % 2 == 0
+
+        },a)
+        console.log(res)
+    </script>
+
+
+
+
+
+</body>
+
+</html>

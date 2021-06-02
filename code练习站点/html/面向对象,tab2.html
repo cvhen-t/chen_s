@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        ul,
+        ol,
+        li {
+            list-style-type: none;
+        }
+
+        #box {
+            width: 600px;
+            height: 500px;
+            border: 1px solid black;
+            margin: 50px auto;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        #box>ul {
+            width: 100%;
+            height: 60px;
+            /* background-color: coral; */
+            display: flex;
+        }
+
+        #box>ul>li {
+            /* width: 100%; */
+            flex-grow: 1;
+            height: 100%;
+            background-color: orange;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        #box>ul>li.active {
+            background-color: darkorange;
+        }
+
+        #box>ol {
+            width: 100%;
+            /* height: 50px; */
+            flex-grow: 1;
+            background-color: burlywood;
+            position: relative;
+        }
+
+        #box>ol>li {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 50px;
+            background-color: steelblue;
+        }
+
+        #box>ol>li.active {
+            display: flex;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <ul id="tabs">
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <ol id="cons">
+            <li class="active"></li>
+            <li>2</li>
+            <li>3</li>
+        </ol </div> 
+        <script>
+             
+        function tabs(box) {
+        this.box = box
+        this.btns = this.box.querySelectorAll('ul > li')
+        this.tabs = this.box.querySelectorAll('ol > li')
+       
+        }
+
+        tabs.prototype.move=function(){
+        let tabthis = this
+        tabthis.btns.forEach(function (e, i) {
+        e.setAttribute("inx", i)
+
+        e.onclick = function () {
+
+        tabthis.btns.forEach(function (r) {
+        console.log(1)
+        r.classList.remove("active")
+        })
+        tabthis.tabs.forEach(function (e) {
+        e.classList.remove("active")
+        e.classList.remove("active1")
+        e.classList.remove("active2")
+        })
+        e.classList.add('active')
+        var xiab = e.getAttribute('inx')
+
+        tabthis.tabs[xiab].classList.add('active')
+
+        console.log(xiab)
+        }
+        })
+        }
+
+
+
+        const box = document.querySelector("#box");
+        let box1 = new tabs(box)
+        box1.move();
+
+
+
+
+        </script>
+</body>
+
+</html>

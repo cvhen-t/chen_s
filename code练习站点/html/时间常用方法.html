@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * 03.时间的常用方法
+            * var date = new Date()
+            * date是一个时间对象，包含了年月日、时分秒、毫秒、星期、时区等信息
+            
+            * 常用方法
+            // get是获取当前时间。set是设置自定义时间----------------------------------------
+                * 获取年月日
+                    * getFullYear()/setFullYear(year)------------------------------------------ getFullYear()/setFullYear(year)
+                    * getMonth()/setMonth(month)------------------------------------------getMonth()/setMonth(month)
+                        注意：得到的月份是从0开始的(0-11)
+                    * getDate()/setDate(date)-----------------------------------------getDate()/setDate(date)
+                * 获取时分秒
+                    * getHours()/setHours(hour)----------------------------------------- getHours()/setHours(hour)
+                    * getMinutes()/setMinutes(min)-----------------------------------------getMinutes()/setMinutes(min)
+                    * getSeconds()/setSeconds(sec)-----------------------------------------getSeconds()/setSeconds(sec)
+                * 获取星期
+                    * getDay() 0-6:星期天-星期六
+                *ES5方法**
+
+                    Date.parse("2015-08-24")`：返回指定日期距1970-1-1零时的毫秒数
+
+                    转换格式默认支持2015-08-24或2015/08/24
+
+                    Date.now()`：返回执行这行代码时距1970-1-1零时的毫秒数
+         */
+
+        var d = new Date();
+
+        var year = d.getFullYear(); // 2020;
+        var month = d.getMonth() + 1; //11
+        var date = d.getDate(); //3
+
+        var hour = d.getHours();
+        var min = d.getMinutes();
+        var sec = d.getSeconds();
+        var msec = d.getMilliseconds()
+
+        // 星期
+        var week = d.getDay(); // 0-6
+
+        console.log(year, month, date);
+        console.log(hour, min, sec, msec);
+        console.log(week);
+    </script>
+</body>
+
+</html>

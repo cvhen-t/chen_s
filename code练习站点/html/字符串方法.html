@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>01.字符串的使用</h1>
+    <script>
+        /**
+         * 01.字符串的使用
+         * 增：添加某个字符串
+         * 拼接
+         * replace()
+         * 删：删除某个字符串
+         * replace
+         * 改：替换
+         * replace(keyword,替换的值) 返回一个新的字符串（不会修改原字符串）
+         * 查：获取某个字符
+         * 查索引值对应的字符
+         * 方括号
+         * charAt()
+         * 查字符对应的索引值
+         * indexOf()/lastIndexOf()
+         * search()
+         * match()
+         */
+        var str = '年轻人不讲武德，耗子尾汁';
+
+        // 只读
+        str[0]; // 年
+        str.charAt(0); //  年
+        // str[0] = 'nian';// 不能修改
+
+        // 改：替换
+        var res1 = str.replace('耗子', '好自');
+        console.log('res1=', res1);
+
+        // 删：删除某个字符
+        var res2 = str.replace('不', '');
+        console.log('res2=', res2);
+
+        var res3 = str.replace('不', '不是很')
+        console.log('res3=', res3);
+
+        var res4 = str.replace('耗子', function (keyword, idx, str) {
+            console.log('arguments=', arguments);
+            // 为所欲为
+
+            return keyword + keyword + keyword + keyword + keyword;
+        })
+        console.log('res4=', res4);
+
+        // <h1>02.字符串的截取</h1>
+
+        /**
+         * 02.字符串的截取
+         * substring(start[,end])：不包括end所在字符，end省略表示截取到最后
+         * substr(start[,len])：支持负数，len为截取的数量
+         * slice(start[,end]) ：截取start到end(不包括end)的字符串，支持负数
+         */
+
+        var str = 'hello thankyou are you ok';
+
+        str.slice(0, 5); // hello
+
+        str.substring(0, 5); // 与slice的区别：不支持负数
+
+        str.substr(2, 5); // 从索引值2开始截取5位字符
+
+        // 以下达到的效果一样
+        str.slice(0);
+        str.substr(0);
+        str.substring(0
+
+
+                /* charAt() 方法从一个字符串中返回指定的字符。 */
+                // var str = "its a good day"
+                // str = "天气真不错"
+                // console.log(str.charAt(0));//天
+                // console.log(str.charAt(1));//气
+                // console.log(str.charAt());//天
+
+                /* charCodeAt() 方法返回 0 到 65535 之间的整数，表示给定索引处的 UTF-16 代码单元 */
+                // console.log('\u0071','\u771F');//q \u 转义字符 代表接下来的内容是Unicode字符集的序号/码点 0071十六进制数表示的序号 等于十进制的113 Unicode字符集中对应字母q
+                // var str = "天气真不错"
+                // console.log(str.charCodeAt(2));//30495
+
+                /* indexOf() 方法返回调用它的 String 对象中第一次出现的指定值的索引，从 fromIndex 处进行搜索。如果未找到该值，则返回 -1。 */
+                // var p = 'The quick brown fox jumps over the lazy dog. If the dog barked, was it really lazy?';
+                // console.log(p.indexOf("dog"));//40
+                // console.log(p.indexOf("dog",41));//52
+                // console.log(p.indexOf("im a dog",41));//-1
+
+                // /* substring() 方法返回一个字符串在开始索引到结束索引之间的一个子集, 或从开始索引直到字符串的末尾的一个子集。 */
+                // var str = "Mozilla";
+                // console.log(str.substring(2,4));//zi
+                // console.log(str.substring(2));//zilla
+
+
+                /* substr() 方法返回一个字符串中从指定位置开始到指定字符数的字符。 */
+                // var str = "abcdefghij";
+                // console.log(str.substr(3,3));//def
+                // console.log(str.substr(-7,3));//def
+                // console.log(str.substr(3));//defghij
+
+                /* toUpperCase() 方法将调用该方法的字符串转为大写形式并返回（如果调用该方法的值不是字符串类型会被强制转换）。 */
+                // var sentence = 'The quick brown fox jumps over the lazy dog.';
+                // console.log(sentence.toUpperCase());
+                // console.log(sentence.toLowerCase());
+                // split把字符串拆分成数组
+                // var url = 'username=laoxie&password=123456&age=18&sex=male&'
+                // // {username:'laoxie',password:123456,age:18,sex:male}
+                // var params = search.split('&'); // ["username=laoxie", "password=123456", "age=18", "sex=male"]
+                // console.log('params=', params);
+    </script>
+</body>
+
+</html>

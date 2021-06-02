@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>1</div>
+    <script>
+        // 点击鼠标左键 触发click事件
+        document.onclick = function (e) {
+            e = e || window.event
+            console.log(e)
+            // 事件对象中的 button 属性表示你点击的是鼠标的哪一个按钮
+            // 0 表示左键
+            // 2 表示右键
+        }
+
+
+        // 单机鼠标右键的时候回触发的事件
+        // context 上下文 menu 菜单
+        document.oncontextmenu = function (e) {
+            e = e || window.event
+
+            console.log(e)
+        }
+
+
+        // 事件信息
+        // 你按下的是那个按键
+
+        /*
+          你要有一个输入的过程
+          而且你要确定你输入在那个元素身上
+          页面中可以选中的元素才能绑定键盘事件
+            + 表单元素
+            + document
+          一般来说我的键盘事件都是绑定在表单元素或者document 上的
+        */
+
+        // ke keyboard event 键盘事件
+        document.onkeydown = function (ke) {
+            console.log("onkeydown", ke);
+        }
+
+        document.onkeyup = function (ke) {
+            console.log("onkeyup", ke);
+            ke = ke || window.event
+            // keyCode
+            // 每一个按键有一个自己的键盘编码
+            // 事件对象里面有一个成员叫做 keyCode  在 firsFox 低版本不好使
+            // fireFox 低版本浏览器使用 ke.which 来获取键盘编码
+            // 给你一个键盘编码
+            console.log(ke.keyCode || ke.which)
+            // console.log(e.altKey,e.ctrlKey,e.shiftKey);
+        }
+
+
+        // 都有哪些常见事件
+
+        /*
+      鼠标事件
+        + click
+        + contextmenu  鼠标右键单机事件
+
+        + mousedown
+        + mouseup
+        + mousemove
+
+        + mouseover 鼠标进入事件
+        + mouseout  鼠标移除事件
+        
+        + monseenter  鼠标移入事件（功能与mouseover一直 但没有事件冒泡 后面会讲）
+        + mouseleave  鼠标移除事件
+
+      键盘事件
+        + keydown
+        + keyup
+
+      浏览器事件
+        + onload
+        + onscroll
+        + onresize
+
+      表单事件
+        + focus    获取焦点
+        + input    用户输入
+        + change   文本改变（当失去焦点时）
+        + blur     失去焦点
+    */
+        var div = document.querySelector("div");
+
+        // 点击鼠标左键
+        // div.onclick = function () {
+        //     console.log("onclick");
+        //     this.style.transition = "width 2s linear";
+        //     this.style.width = "500px";
+        // };
+
+        // // 鼠标移入div
+        // div.onmouseover = function (e) {
+        //     console.log("onmouseover我进入元素");
+        // };
+
+        // // 鼠标移出
+        // div.onmouseout = function (e) {
+        //     console.log("onmouseout我离开元素了");
+        // };
+
+        // // 鼠标移入div
+        // div.onmouseenter = function () {
+        //     console.log("onmouseenter 鼠标进入enter");
+        // };
+
+        // // 鼠标移出
+        // div.onmouseleave = function () {
+        //     console.log("onmouseleave 鼠标离开leave");
+        // };
+
+        /* 其它鼠标事件 */
+        // double 双份的
+        // 双击鼠标事件
+        // div.ondblclick = function (e) {
+        //     console.log("ondblclick", e);
+        // };
+
+        // // 按下鼠标
+        // div.onmousedown = function (e) {
+        //     console.log("onmousedown", e);
+        // };
+
+        // // 抬起鼠标
+        // div.onmouseup = function (e) {
+        //     console.log("onmouseup", e);
+        // };
+
+        // // 移动鼠标
+        // div.onmousemove = function (e) {
+        //     console.log("onmousemove", e);
+        // };
+
+
+
+        /* input框的常用事件 */
+        var inp = document.querySelector("input");
+
+        // 输入框得到焦点（聚焦事件）
+        // focus 聚焦 对焦
+        inp.onfocus = function () {
+            console.log("onfocus 我得到焦点了");
+        };
+
+        // 用户输入事件
+        inp.oninput = function () {
+            console.log("oninput 用户正在输入");
+        };
+
+        // blur 模糊的
+        // 输入框失去焦点
+        inp.onblur = function () {
+            console.log("onblur 我失去焦点了");
+        };
+
+        // 文本改变事件
+        inp.onchange = function () {
+            console.log("onchange 文本确认发生改变");
+        };
+    </script>
+
+
+</body>
+
+</html>

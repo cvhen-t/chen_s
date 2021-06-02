@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="res"></div>
+    <script>
+        // 入职薪水10K，每年涨幅5%，50年后工资多少？工作50年存款多少？
+    
+        var gz = 10000
+        var ck = 12000
+     
+        for(var i=2;i<=50;i++){
+            gz += gz*0.05
+            ck +=gz*12
+                console.log(gz.toFixed(2),ck.toFixed(2))
+       
+        }
+       
+
+
+
+    </script>
+    
+</body>
+</html>

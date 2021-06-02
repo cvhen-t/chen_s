@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="put">
+    <button id="btn">校验</button>
+    <div id="res"></div>
+    <script>
+        // for(var i =1 ; i<=255;i++){
+        //     var tes = / [i]/
+        //    var r1= tes.test(i)
+        //    console.log(r1)
+
+
+        // }
+
+        // 手机号：
+        // var shou =/^1(3|4|5|7|8)\d{9}$/
+
+        // btn.onclick = function () {
+        //   var a = put.value
+
+        // var r=shou.test(a)
+        // console.log(r)
+        // }
+        //邮箱格式
+
+        var you = /^([a-z])+@cc\.+(com|cn|net)\.+(com|cn|net)?$/
+
+        btn.onclick = function () {
+            var a = put.value
+
+            var r = you.test(a)
+            console.log(r)
+        }
+
+        // 身份证
+
+        // var shen  = /(^\d{17}(\d|X|x)$)/
+
+
+        // btn.onclick = function () {
+        //   var a = put.value
+
+        // var r=shen.test(a)
+        // console.log(r)
+        // }
+
+        // 域名
+    </script>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

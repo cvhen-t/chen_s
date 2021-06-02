@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../学生栏.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 800px;
+            height: 40px;
+            border: 1px solid #333;
+            margin: 30px auto;
+
+        }
+
+        table {
+            width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        tbody>tr:nth-child(odd) {
+            background-color: pink;
+        }
+
+        tbody>tr:nth-child(even) {
+            background-color: skyblue;
+        }
+
+        tbody>tr:hover {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="bibox"></div>
+
+    <table border="1" cellspacing="0">
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>学生姓名</th>
+                <th>学生年龄</th>
+                <th>学生性别</th>
+                <th>学生班级</th>
+                <th>学生薪水</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        //创建用户数据
+        const getRandom = (a, b) =>
+            a + parseInt(Math.random() * (b - a + 1));
+        const stuxin = "赵钱孙李周吴郑王冯陈楚魏蒋沈韩杨朱秦尤许何吕施章";
+        const stuming1 = "由鹤伯容申惆甫青佉";
+        const stuming2 = "烟研隆科于非册瑟萨克符立低";
+        const xibbie = "男女"
+        const gz = parseInt(getRandom(3000, 10000))
+
+        function mingz() {
+            return stuxin[getRandom(0, stuxin.length - 1)] + stuming1[getRandom(0, stuming1.length - 1)] + stuming2[
+                getRandom(0, stuming2.length - 1)]
+        }
+
+        function getshujju(i) {
+            stu = {}
+            stu.id = (i)
+            stu.name = mingz()
+            stu.xibbie = xibbie[getRandom(0, 1)]
+            stu.age = getRandom(20, 30)
+            stu.clas = getRandom(2001, 3001)
+            stu.gz = getRandom(3000, 10000)
+            return stu
+        }
+        var data = []
+        for (i = 0; i <= 1000; i++) {
+            var sty = ''
+            sty = getshujju(i)
+            data.push(sty)
+        }
+        console.log(data)
+        //把用户数据渲染进表格
+        var tbaby = document.querySelector('tbody')
+        var tr = document.createElement('tr')
+
+        var tabstr = ''
+
+        function xrtable() {
+            for (let i = 1; i < data.length; i++) {
+                var stufor = data[i]
+                let stra =
+                    `<tr><td>${stufor.id}</td><td>${stufor.name}</td><td>${stufor.age}</td><td>${stufor.xibbie}</td><td>${stufor.clas}</td><td>${stufor.gz}</td></tr>`;
+                tabstr += stra
+            }
+            tbaby.innerHTML = tabstr
+        }
+        // xrtable()
+        // 截取显示一页多少行
+        const pagesize = 10
+
+        function xrtable(data,p) {
+            tabstr = ''
+            let newtable = data.slice(pagesize * (p - 1) + 1, pagesize * p + 1)
+
+            for (let i = 0; i < newtable.length; i++) {
+                var stufor = newtable[i]
+                let stra =
+                    `<tr><td>${stufor.id}</td><td>${stufor.name}</td><td>${stufor.age}</td><td>${stufor.xibbie}</td><td>${stufor.clas}</td><td>${stufor.gz}</td></tr>`;
+                tabstr += stra
+            }
+            tbaby.innerHTML = tabstr
+        }
+        // xrtable(30) // 实参(10,6) 形参pagesize,page(一页多少行，显示第几页)
+
+        
+        function comebakll() {
+          
+            return  xrtable( data,this.options.yenum.page)
+         
+            
+        }
+
+        const daohang = document.querySelector(".container") //获取导航栏元素节点
+        const userfun = new zreofun(daohang, null,comebakll);
+
+
+        console.log(userfun);
+    </script>
+
+</body>
+
+</html>

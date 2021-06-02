@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: inline-flex;
+        }
+
+        #box1 {
+            margin-right: 50px;
+            width: 300px;
+            height: 180px;
+            /* border: 1px solid black; */
+            display: inline-block;
+            background: url(../img/car_min.png) no-repeat;
+            position: relative;
+        }
+
+        #box2 {
+            width: 485px;
+            height: 300px;
+            /* border: 1px solid black; */
+            display: inline-block;
+            background: url(../img/car.jpg) no-repeat;
+            background-position: 0px 0px;
+            display: none;
+
+
+        }
+
+        .s2 {
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+            border: 1px solid black;
+            background-color: cornflowerblue;
+            /* display: none; */
+
+        }
+
+        .s1 {
+            width: 80px;
+            height: 80px;
+            display: inline-block;
+            /* border: 1px solid black; */
+            background-color: rgb(187, 255, 0);
+            opacity: 0.4;
+            position: absolute;
+
+            left: 0px;
+            top: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box1">
+        <span></span>
+    </div>
+    <div id="box2"></div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script>
+        $('#box1').hover( // 鼠标移入事件处理函数
+            function (e) {
+                $('span').addClass('s1')
+                var w = e.offsetX - 40
+                var h = e.offsetY - 40
+                w < 0 ? w = 0 : w = w
+                h < 0 ? h = 0 : h = h
+                w > 300 ? w = 220 : w = w
+                h > 150 ? h = 80 : h = h
+                $('span').css({
+                    top: `${h}px`,
+                    left: `${w}px`,
+                })
+            },
+            // 鼠标移出事件处理函数
+            function (e) {
+                $('span').removeClass('s1')
+                $('#box2').css({
+                    display: "none",
+                })
+            });
+        $('span').on("mousemove", function (e) {
+            var w = e.clientX - 40
+            var h = e.clientY - 40
+            w < 0 ? w = 0 : w = w
+            h < 0 ? h = 0 : h = h
+            w > 220 ? w = 220 - 1 : w = w
+            h > 80 ? h = 90 - 1 : h = h
+            console.log(h, w)
+            $('span').css({
+                top: `${h}px`,
+                left: `${w}px`,
+            })
+            $('#box2').css({
+                display: "block",
+                "background-position": `${-w*4}px ${-h*5}px`,
+            })
+        })
+    </script>
+</body>
+
+</html>

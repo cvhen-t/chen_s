@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button id="btn">点击</button>
+    <script>
+        function suiji(max, min) {
+            var red
+            var green
+            var bule
+            var randomcoror = ''
+
+            red = (parseInt(Math.random() * (max - min + 1) + min))
+            bule = (parseInt(Math.random() * (max - min + 1) + min))
+            green = (parseInt(Math.random() * (max - min + 1) + min))
+
+            //转化为16进制
+            // red = red.toString(16);
+            // green = green.toString(16);
+            // bule = bule.toString(16);
+
+
+            //进行格式化一致，在位数不够的前面补0.
+            // red = red.length > 1 ? red : "0" + red;
+            // green = green.length > 1 ? green : "0" + green;
+            // bule = bule.length > 1 ? bule : "0" + bule;
+
+            var randomcoror = "rgb(" + red + "," + green + "," + bule + ")";
+            return randomcoror
+
+
+        }
+
+
+        // suiji(0, 255)
+
+        btn.onclick = function () {
+            console.log(suiji(0, 254))
+            document.body.style.backgroundColor = suiji(0, 255);
+
+        }
+    </script>
+
+
+
+    <tr style="background-color: #ccc;"></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

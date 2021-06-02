@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // - `test` 是用来检测字符串是否符合我们正则的标准
+
+        // - 语法： `正则.test(字符串)`
+
+        // - 返回值： boolean
+        // 案例：
+        // console.log(/\d+/.test('123')) // true
+        // console.log(/\d+/.test('abc')) // false
+
+
+
+        // -----------------------------------------------------------------------------------
+        //   ### exec
+
+        // - `exec` 是把字符串中符合条件的内容捕获出来
+
+        // - 语法： `正则.exec(字符串)`
+
+        // - 返回值： 把字符串中符合正则要求的第一项以及一些其他信息，以数组的形式返回
+
+         // 案例：
+        var reg = /\d{3}/
+        var str = 'hello123world456你好789'
+        var res = reg.exec(str)
+        console.log(res)
+        /*
+        	["123", index: 5, input: "hello123world456你好789", groups: undefined]
+            0: "123"
+            groups: undefined
+            index: 5
+            input: "hello123world456你好789"
+            length: 1
+          	__proto__: Array(0)
+        */
+        // -----------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        //     
+    </script>
+</body>
+
+</html>

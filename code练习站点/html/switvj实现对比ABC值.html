@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="res"></div>
+
+    <script>
+        function panduan(a, b, c) {
+            switch (true) {
+                case (a>b && b>c ):
+                    console.log(a, b, c)
+                    break;
+                case (a > c &&c> b):
+                    console.log(a, c, b)
+                    break;
+                case (b > a &&a> c):
+                    console.log(b, a, c)
+                    break;
+                case (b > c &&c> a):
+                    console.log(b, c, a)
+                    break;
+                case (c > b&&b> a):
+                    console.log(c, b, a)
+                    break;
+                case (c > a &&a> b):
+                    console.log(c, a, b)
+                    break;
+                default:
+                    // console.log(a,b,c)
+            }
+        }
+        panduan(9, 4, 2)
+        panduan(1, 4, 2)
+        panduan(5, 4, 2)
+        panduan(3, 4, 2)
+        panduan(1, 4, 7)
+        panduan(5, 4, 2)
+        panduan(8, 4, 2)
+        panduan(1, 0, 2)
+        panduan(5, 4, 2)
+    </script>
+
+</body>
+
+</html>

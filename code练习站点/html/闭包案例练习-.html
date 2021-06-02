@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- ·封装一个地理位置类Location，属性x,y，
+    求距离方法：getDistance(anotherLocation)可以计算与另一个地理位置的直线距离
+    ·随意造两个地理位置实例，并求它们之间的距离
+
+    商家、、、、     ----------
+    ·创建商家类Shop，继承自地理位置类，同时拥有类别属性type、单价属性price，和服务方法serve()，留白等待子类去做具体实现
+    ·实现饭馆类Restaurant、超市类Supermarket、酒店类Hotel，全部继承Shop，并覆写服务方法serve()
+
+    ----------
+    ·实现Location的子类消费者Consumer，拥有name、money属性,和消费方法consume()
+    ----------
+    ·产生一个随机位置的消费者和100个位置类型都随机的商家
+    ·写一个推荐函数recommend(consumer,type,n)，为消费者提供n个离他位置最近的商家
+    ----------
+    ·要求用构造函数和类两种方式实现
+    ·让消费者按照推荐去这n家商家循环消费，直到耗尽money为止，留下每家商家的消费记录（选做/尝试用闭包） -->
+
+    <script>
+        function Location(x, y) {
+            this.x = x
+            this.y = y
+        }
+        Location.prototype.getDistance = function (A, B) {
+            let resx = A.x - B.x
+            let resy = A.y - B.y
+
+            return (`${resx},${resy}`)
+        }
+    </script>
+    <script>
+        let a1 = new Location(211, 311)
+        let a2 = new Location(111, 124)
+        // console.log(a1.getDistance(a1, a2))
+    </script>
+
+    <!-- 
+商家、、、、     ----------
+·创建商家类Shop，继承自地理位置类，同时拥有类别属性type、单价属性price，和服务方法serve()，留白等待子类去做具体实现
+·实现饭馆类Restaurant、超市类Supermarket、酒店类Hotel，全部继承Shop，并覆写服务方法serve() -->
+    <script>
+        function Shop(type, price, x, y, name) {
+            this.type = type
+            this.price = price
+            this.name = name
+            this.count = 0
+            Location.call(this, x, y)
+        }
+
+        Shop.prototype = new Location()
+
+        Shop.prototype.server = function (ser) {
+            var serarr = []
+            serarr.push(ser)
+            serarr.push(this)
+            return serarr
+        }
+        Shop.prototype.moneyserver = function (type) {
+            var serverT = this.type
+            if (this.type == '酒馆') {
+                this.price = 300
+            }
+
+            if (this.type == '伶阁') {
+                this.price = 300
+            }
+
+            if (this.type == '客栈') {
+                this.price = 200
+            }
+
+            if (this.type == '教坊') {
+                this.price = 1100
+            }
+
+            if (this.type == '戏院') {
+                this.price = 1300
+            }
+
+            if (this.type == '赌坊') {
+                this.price = 5000
+            }
+
+            if (this.type == '茶肆') {
+                this.price = 100
+            }
+            if (this.type == '医馆') {
+                this.price = 1500
+            }
+
+            if (this.type == '瓦市') {
+                this.price = 3000
+            }
+
+
+        }
+
+
+        let pub = new Shop('酒馆', '100', 200, 100, 798)
+        console.log(pub.server('喝酒'))
+
+        let hotel = new Shop('客栈', '100', 200, 100, 789)
+        console.log(hotel.server('睡觉'))
+
+        let Supermarket = new Shop('集市', '100', 200, 100, 897)
+        console.log(Supermarket.server('网贝'))
+    </script>
+    <!-- ·实现Location的子类消费者Consumer，拥有name、money属性,和消费方法consume() -->
+    <script>
+        function Consumer(name, money, consume, x, y) {
+            this.name = name
+            this.money = money
+            this.consume = consume
+            Location.call(this, x, y)
+        }
+
+        let zhao = new Consumer('赵云', 10000, pub, 120, 29)
+        // console.log(zhao)
+        let zhang = new Consumer('张飞', 1000, pub, 100, 29)
+        // console.log(zhang)
+        let guan = new Consumer('关羽', 25000, Supermarket, 240, 29)
+        // console.log(guan)
+        let huang = new Consumer('黄忠', 30000, hotel, 320, 29)
+        // console.log(huang)
+        let ma = new Consumer('马超', 6000, Supermarket, 500, 29)
+        // console.log(ma)
+    </script>
+
+    <!-- 
+·产生一个随机位置的消费者和100个位置类型都随机的商家
+-->
+    <script>
+        let userX = parseInt(Math.random() * 999 + 10 - 1 + 10)
+        let userY = parseInt(Math.random() * 999 + 10 - 1 + 10)
+
+        let GouLan = ['酒馆', '伶阁', '客栈', '教坊', '戏院', '赌坊', '茶肆', '医馆', '瓦市']
+        let GouLanserver = ['喝酒吃肉', '吹琴听曲', '休养生息', '舞剑吟诗', '赏戏哼文', '买定离手', '听书泯茶', '悬壶济世', '东网西贝']
+        // let GouLanType=['tavern',' pavilion', 'inn',' tavern', 'theater',' casino', 'tea shop',' hospital', 'tile market.']
+
+
+        function dian() {
+
+
+
+            var GouLanlist = []
+
+            for (let i = 1; i <= 100; i++) {
+                let userX = parseInt(Math.random() * 999 + 10 - 1 + 10)
+                let userY = parseInt(Math.random() * 999 + 10 - 1 + 10)
+                let G = parseInt(Math.random() * 8)
+                let jiu = 1
+                let GouLani = new Shop(GouLan[G], 100, userX, userY, GouLan[G] + i)
+
+
+                GouLani.moneyserver(GouLan[G])
+
+                GouLanlist.push(GouLani.server(GouLanserver[G]))
+
+
+            }
+
+            return GouLanlist
+        }
+        let jj = dian()
+
+        console.log(jj)
+        // console.log(GouLanlist)
+        let zhu = new Consumer('诸葛亮', 50000, pub, userX, userY)
+
+
+        // ·写一个推荐函数recommend(consumer,type,n)，为消费者提供n个离他位置最近的商家 
+        function recommend(zhu, type, n) {
+
+            let people = zhu.x + zhu.y
+
+            let onebaidian = dian()
+
+            // 过滤出指定类型的商家
+            onebaidian = onebaidian.filter(item => {
+                return item[1].type == type
+            })
+
+
+            let store = onebaidian.map(item => {
+
+                return item[1].x + item[1].y
+
+            })
+
+            let Juli = store.map((item, index) => {
+                return {
+                    index,
+                    juli: Math.abs(people - item)
+                }
+            })
+
+            let res = Juli.sort(function (a, b) {
+                return a.juli - b.juli
+
+            }).slice(0, n)
+
+
+            return res.map(item => {
+                return onebaidian[item.index]
+            })
+
+        }
+
+        console.log(recommend(zhu, '伶阁', 20), '推荐商家')
+
+
+
+        console.log(zhu);
+        //   ·让消费者按照推荐去这n家商家循环消费，直到耗尽money为止，留下每家商家的消费记录（选做/尝试用闭包） -->
+        let storeInfo = recommend(zhu, '赌坊', 10)
+
+        function consume(consumer, storeInfo) {
+
+            function sxtConsume() {
+                let arr = []
+                for (let index = 0; true; index++) {
+
+                    let randomStore = parseInt(Math.random() * storeInfo.length)
+
+                    let store = storeInfo[randomStore][1]
+
+                    if (consumer.money >= store.price) {
+
+                        consumer.money -= store.price
+
+                        let index = arr.indexOf(arr.filter(item => item.name == store.name)[0])
+
+                        if (index == -1) {
+
+                            arr.push({
+                                name: store.name,
+                                count: 1
+                            })
+
+                        } else {
+
+                            arr[index].count += 1
+
+                        }
+
+                    } else {
+
+                        return arr
+
+                    }
+                }
+            }
+
+            return sxtConsume
+
+        }
+
+        let res = consume(zhu, storeInfo)
+        console.log(res());
+    </script>
+
+
+
+
+</body>
+
+</html>

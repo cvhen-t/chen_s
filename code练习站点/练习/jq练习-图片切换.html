@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        ul {
+            width: 640px;
+            height: 280px;
+            border: 10px solid pink;
+            margin: 30px auto;
+            display: flex;
+        }
+
+        li {
+            width: 160px;
+            height: 100%;
+
+            overflow: hidden;
+        }
+
+        img {
+            width: 520px;
+            height: 280px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 520 280 -->
+    <ul>
+        <li><img src="../img/1.jpg" alt="" /></li>
+        <li><img src="../img/2.jpg" alt="" /></li>
+        <li><img src="../img/3.jpg" alt="" /></li>
+        <li><img src="../img/car_min.png" alt="" /></li>
+    </ul>
+
+    <button>按钮</button>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script>
+        $('li').hover(function () {
+            $('li').finish()
+            $(this). animate({
+                    width: 520
+                })
+                .siblings().animate({
+                    width: 40
+                })
+           
+
+
+        }, function () {
+            $('li').
+            animate({
+                width: 160
+            })
+            $("li").stop()
+        }) 
+    </script>
+
+</body>
+
+</html>

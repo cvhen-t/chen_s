@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//    对象是由花括号{}合起来的数据类型，花括号里面包含属性和属性值两种
+//     对象的增删改查：
+
+// 定义一个对象：属性。属性值为字符串类型
+var a = {
+
+name:'chen',
+age:18,
+xinbie:'男'
+}
+// 对象的增加：
+a .password=1234124; //采用点语法增加
+a['weiz']='hhh'     //采用方括号增加
+// 对象的修改：
+a.password=7856     //采用点语法增加
+a['weiz']='www'     //采用方括号增加
+// 对象的删除：
+delete a.password    //采用点语法增加
+delete a['weiz']    //采用方括号增加
+//对象的查询
+console.log(a.name) 
+console.log(a['name'])
+
+// 遍历对象 for in循环
+
+for(key in a){
+console.log(key)
+console.log(a[key])
+}
+// key 是一个变量 代表对象里面的每一个属性
+// a为对象的名字
+// a[key] 采用方括号方法，遍历每一个属性的属性值
+
+</script>
+ 
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="num1">
+    <input type="text" id="num2">
+    <button id="btn">对比</button>
+   <button><a href="" style="text-decoration: none; color: black;">重置</a></button>
+    
+    <div id="res">最大值为：</div>
+
+
+   
+    <script>
+        // var num1 = document.getElementById('num1')
+        // var num2 = document.getElementById('num2')
+        // var btn = document.getElementById('btn')
+        // var res = document.getElementById('res')
+
+
+        btn.onclick = function(){
+            var numres1 = Number(num1.value) 
+            var numres2 = Number(num2.value)
+
+            if(numres1>numres2){
+                res.innerHTML= (' 最大值为:'+numres1)
+
+            }else{
+                res.innerHTML= (' 最大值为:'+numres2)
+            }
+        }
+
+    
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

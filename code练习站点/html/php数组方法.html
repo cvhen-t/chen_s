@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    1.变量用$定义 $a
+    2.没有变量提升。全局作用域不能直接用在函数作用域内部，需要用关键字。
+    3.定义常量也是需要关键字
+    4.其他的类似
+    5.函数使用一样。但是如果用形参 必须写实参 否者会报错。
+
+    <!-- <?php //开始 
+
+    //...php代码
+
+    ?> //结束 -->
+
+    ### Array
+
+    >数组是一个能在单个变量中存储多个值的特殊变量。
+
+    - 类型
+    + 数值数组：带有数字索引值的数组（与js数组一至）
+    + 关联数组：带有指定的键的数组，每个键关联一个值（与js对象一致）
+    + 多维数组：包含一个或多个数组的数组
+    - 创建数组：
+    //数值数组
+    $cars=array("Volvo","BMW","Toyota");
+
+    //关联数组
+    $age=array("Peter"=>"35","Ben"=>"37","Joe"=>"43");
+
+    - 数组方法
+    * count() 获取数组长度
+    * in_array() 判断某个值是否存在数组中
+    * array_slice() 从数组中取出一段
+    * array_rand() 随机获取索引值
+    * array_search() 查找字符串在数组中的索引值
+
+    - 遍历数组
+    + `for`
+    一般用于遍历数值数组
+    + `foreach()`
+    一般用于遍历关联数组
+
+    <?php
+    //遍历数值数组：for循环
+    $cars=array("Volvo","BMW","Toyota");
+    $arrlength=count($cars);
+    for($x=0;$x<$arrlength;$x++){
+        echo $cars[$x] . "<br>";
+    }
+
+    //遍历关联数组：foreach..as
+    $age=array("Peter"=>"35","Ben"=>"37","Joe"=>"43");
+    foreach($age as $x=>$x_value){
+        echo "Key=" . $x . ", Value=" . $x_value;
+        echo "<br>";
+    }
+?>
+
+
+    数组排序
+
+    + sort() 对数值数组进行升序排列
+    + rsort() 对数值数组进行降序排列
+    + asort() 根据关联数组的值，对数组进行升序排列
+    + ksort() 根据关联数组的键，对数组进行升序排列
+    + arsort() 根据关联数组的值，对数组进行降序排列
+    + krsort() 根据关联数组的键，对数组进行降序排列
+    + array_multisort($arr(一维数组),排序方式(SOTR_ASC,SOTR_DESC),$需排序的数组(可以是二维的))
+    * array_column()：配合排序，一般用于得到二维数组中某些值组成的一维数组
+
+
+    
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

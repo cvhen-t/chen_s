@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var a = []
+
+        var o = 0
+        for (var i = 1; i <= 30; i++) {
+            o += 2
+            a.push(o)
+        }
+
+        var b = []
+        var c = []
+
+        for (var j = 0; j <= a.length; j++) {
+            b.push(a[j])
+            // console.log(b)
+
+            if (b.length == 5) {
+                var res = 0
+                res = (b[0] + b[1] + b[2] + b[3] + b[4]) / 5
+                c.push(res)
+                b = []
+            }
+        }
+        console.log(c)
+    </script>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

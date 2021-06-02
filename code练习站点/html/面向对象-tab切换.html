@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 常规reset动作 */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        ul,
+        ol,
+        li {
+            list-style-type: none;
+        }
+
+        #box {
+            width: 600px;
+            height: 500px;
+            border: 1px solid black;
+            margin: 50px auto;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        #box>ul {
+            width: 100%;
+            height: 60px;
+            /* background-color: coral; */
+            display: flex;
+        }
+
+        #box>ul>li {
+            /* width: 100%; */
+            flex-grow: 1;
+            height: 100%;
+            background-color: orange;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        #box>ul>li.active {
+            background-color: darkorange;
+        }
+
+        #box>ol {
+            width: 100%;
+            /* height: 50px; */
+            flex-grow: 1;
+            background-color: burlywood;
+            position: relative;
+        }
+
+        #box>ol>li {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 50px;
+            background-color: steelblue;
+        }
+
+        #box>ol>li.active {
+            display: flex;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <ul id="tabs">
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <ol id="cons">
+            <li class="active"></li>
+            <li>2</li>
+            <li>3</li>
+        </ol>
+    </div>
+    <script>
+        function Tabs(box) {
+            this.box = box
+            this.btns = this.box.querySelectorAll('ul > li')
+            this.tabs = this.box.querySelectorAll('ol > li')
+        }
+        Tabs.prototype.bindEvent = function () {
+            // 把tabthis 暂时保存起来，后面会用他 进行 调用 ol》Li  和 ul》li去换类名
+            const Tabthis = this
+
+            // 操作 btns 和 tabs
+            for (let i = 0; i < this.btns.length; i++) {
+                this.btns[i].setAttribute('index', i)
+
+                // 下面这个函数是事件处理函数，this => 事件源
+                this.btns[i].onclick = function () {
+                    for (let j = 0; j < Tabthis.btns.length; j++) {
+                        Tabthis.btns[j].className = ''
+                        Tabthis.tabs[j].className = ''
+                    }
+
+                    // 当前点击的这个添加类名
+                    this.className = 'active'
+                    Tabthis.tabs[this.getAttribute('index')].className = 'active'
+                }
+            }
+
+        }
+
+    const box = document.querySelector("#box");
+        const t1 = new Tabs(box);
+        t1.bindEvent();
+    </script>
+
+
+</body>
+
+</html>

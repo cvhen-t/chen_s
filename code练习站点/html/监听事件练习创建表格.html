@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        ul {
+            background-color: chocolate;
+            width: 1470px;
+            /* height: 1px; */
+            padding-top: 5px;
+            margin: 30px auto;
+            display: inline-flex;
+            flex-wrap:wrap;
+            justify-items: center;
+            padding-left: 50px;
+
+
+        }
+        body{
+            text-align: center;
+            padding-top: 20px;
+            background-color: skyblue;
+        }
+
+        li {
+            display: inline-block;
+            list-style: none;
+            border: 1px solid black;
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            margin: 3px;
+            /* margin-top: 60px; */
+            line-height: 50px;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" >
+    <button>输入点击创建相应表格</button>
+
+    <ul></ul>
+    <script>
+        // 使用事件委托来书写表格（有一个删除功能）
+
+        var ul = document.querySelector('ul')
+        var but = document.querySelector('button')
+        var pu = document.querySelector('input')
+        but.addEventListener("click", function () {
+
+            var s = pu.value * 1
+
+            for (i = 1; i <= s; i++) {
+                var wen = document.createTextNode(i)
+                var li = document.createElement('li')
+                li.appendChild(wen)
+                ul.appendChild(li)
+            }
+            var lis = document.querySelectorAll('li')
+            console.log(lis)
+
+            lis.forEach(function (item, index) {
+                item.addEventListener("click", function () {
+                    console.log(index)
+                    ul.removeChild(item)
+                })
+
+
+
+
+
+            })
+        })
+
+
+
+        document.onselectstart = function (e) {
+            return false;
+        };
+    </script>
+</body>
+
+</html>

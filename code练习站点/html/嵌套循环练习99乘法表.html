@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span{
+            display: inline-block;
+            background-color: black;
+            margin: 2px;
+            width: 60px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            color:limegreen;
+            font-size: 14px;
+
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="res"></div>
+    <script>
+    var str =''
+        for( var m = 1;m<=9;m++){
+            for( var n = 1;n<=m;n++){
+            str += ('<span>'+ n +'x'+ m+ '='+ n*m+'</span>' )
+            }
+            str+='<br>'
+            
+        }
+
+        res.innerHTML=( str)
+
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

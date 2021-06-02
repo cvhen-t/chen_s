@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1.编写任意个数字的求和、差、积、商的函数
+        function res(anum, fangs, bnum) {
+            if (fangs == '+')
+                return anum + bnum
+            if (fangs == '-') {
+                return anum - bnum
+            }
+            if (fangs == '*') {
+                return anum * bnum
+            }
+            if (fangs == '/') {
+                return anum / bnum
+            }
+        }
+
+        // 编写一个函数，计算任意两个数字之间所能组成的奇数个数，数字必须是个奇数比如： 计算0-3之间能组成的奇数个是01、21、03、13、23、31
+
+        function res2(anum,bnum){
+            var a=[]
+            for(i=anum;i<bnum;i++){
+
+                for(j=anum;j<bnum;j++){
+                        a.push(toString(i)+j)
+                }
+            }
+            console.log(a)
+        }
+        res2(5,9)
+    </script>
+</body>
+
+</html>

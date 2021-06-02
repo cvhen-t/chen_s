@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // ### search
+
+        // - `search` 是查找字符串中是否有满足正则条件的内容
+
+        // - 语法： `字符串.search(正则)`
+
+        // - 返回值 ： 有的话返回开始索引，没有返回 -1
+
+// 案例:
+        // var reg = /\d{3}/
+        // var str = 'hello123'
+        // var str2 = 'hello'
+        // console.log(str.search(reg)) // 5
+        // console.log(str2.search(reg)) // -1
+
+        // -----------------------------------------------------------------------------------------------
+        //         ### match
+
+        // - `match` 找到字符串中符合正则条件的内容返回
+
+        // - 语法： `字符串.match(正则)`
+
+        // - 返回值 ： 
+
+        //   - 没有标示符 g 的时候，是和 exec 方法一样
+        //   - 有标示符 g 的时候，是返回一个数组，里面是匹配到的每一项
+
+// 案例
+        //   var reg = /\d{3}/
+        // var str = 'hello123world456'
+        // var str2 = 'hello'
+        // console.log(str.match(reg)) 
+        // // ["123", index: 5, input: "hello123wor456", groups: undefined]
+        // console.log(str2.match(reg)) // null
+
+        // var reg = /\d{3}/g
+        // var str = 'hello123world456'
+        // var str2 = 'hello'
+        // console.log(str.match(reg)) 
+        // // ["123", "456"]
+        // console.log(str2.match(reg)) // null
+
+        
+ // -----------------------------------------------------------------------------------------------
+        //         ### replace
+
+        // - `replace` 是将字符串中满足正则条件的字符串替换掉
+
+        // - 语法： `字符串.replace(正则，要替换的字符串)`
+
+        // - 返回值 ： 替换后的字符串
+// 案例
+        // var reg = /\d{3}/
+        // var str = 'hello123world456'
+        // var str2 = 'hello'
+        // console.log(str.replace(reg)) // hello666world456
+        // console.log(str2.replace(reg)) // hello
+
+        // var reg = /\d{3}/g
+        // var str = 'hello123world456'
+        // var str2 = 'hello'
+        // console.log(str.replace(reg)) // hello666world666
+        // console.log(str2.replace(reg)) // hello
+    </script>
+</body>
+
+</html>

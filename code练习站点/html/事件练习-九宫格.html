@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 700px;
+            height: 700px;
+            border: 10px solid chocolate;
+            position: relative;
+        }
+
+        li {
+            list-style-type: none;
+            width: 200px;
+            height: 200px;
+            background-color: chocolate;
+            /* margin: 10px; */
+            position: absolute;
+            text-align: center;
+            line-height: 200px;
+            font-size: 40px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+
+        <ul id="ul">
+            <li style="top: 10px; left: 10px">1</li>
+            <li style="top: 10px; left: 220px">2</li>
+            <li style="top: 10px; left: 430px">3</li>
+
+            <li style="top: 220px; left: 10px">4</li>
+            <li style="top: 220px; left: 220px">5</li>
+            <li style="top: 220px; left: 430px">6</li>
+
+            <li style="top: 430px; left: 10px">7</li>
+            <li style="top: 430px; left: 220px">8</li>
+            <li style="top: 430px; left: 430px">9</li>
+        </ul>
+        <script>
+            var lis = document.querySelectorAll('li')
+            lis.forEach(function (li, index) {
+                console.log(li)
+
+                li.onmousedown = function (e) {
+
+                    var max = 9
+                    var w1 = e.clientX - 100
+                    var h1 = e.clientY - 100
+                    w1 = w1 < 0 ? 0 : w1;
+                    w1 = w1 > 700 - 200 ? 700 - 200 : w1;
+                    h1 = h1 < 0 ? 0 : h1;
+                    h1 = h1 > 700 - 200 ? 700 - 200 : h1;
+                    li.onmousemove = function (e) {
+                        var w = e.clientX - 100
+                        var h = e.clientY - 100
+                        w = w < 0 ? 0 : w;
+                        w = w > 700 - 200 ? 700 - 200 : w;
+                        h = h < 0 ? 0 : h;
+                        h = h > 700 - 200 ? 700 - 200 : h;
+                        li.style.top = h + 'px'
+                        li.style.left = w + 'px'
+                        li.style.zIndex = max + 1
+                    }
+
+                    li.onmouseout = function (e) {
+                        li.style.transition = "all 0.5s linear";
+                        li.style.top = h1 + 'px'
+                        li.style.left = w1 + 'px'
+                        li.onmousemove = null
+                        setTimeout(function () {
+                            li.style.transition = "none";
+                        }, 500);
+
+                    }
+                    li.onmouseup = function (e) {
+                        li.onmousemove = null
+                        li.onpointerdown = null
+                        li.onpointerout = null
+                    }
+
+                }
+
+            })
+            document.onselectstart = function (e) {
+                return false;
+            };
+        </script>
+
+    </div>
+</body>
+
+</html>

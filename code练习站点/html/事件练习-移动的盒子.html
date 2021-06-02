@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #outbox {
+            width: 800px;
+            height: 600px;
+            border: 1px solid crimson;
+            position: relative;
+           
+        }
+
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: darkblue;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outbox">
+        <div id="box"></div>
+    </div>
+    <script>
+
+
+        var box = document.getElementById('box')
+        var outbox = document.getElementById('outbox')
+        var outerBoxWidth1 = parseInt(window.getComputedStyle(box).width) 
+        var outerBoxWidth2 = parseInt(window.getComputedStyle(box).width) 
+     
+
+        box.onmousedown = function () {
+            box.onmousemove = function (e) {
+                e = e || window.event
+
+                var w = e.clientX
+                var h = e.clientY
+
+                var w2= w-50
+                var h2= h-50
+               
+               
+                if (h2 <0) {
+                    h2 = 0 
+                }
+                if (h2 >500) {
+                    h2 = 500
+                }
+                if (w2 <0) {
+                    w2 = 0
+                }
+                if (w2 > 700) {
+                    w2 = 700
+                }
+                box.style.top = h2 +'px'
+                box.style.left = w2+'px'
+            }
+            box.onmouseup = function () {
+
+                box.onmousemove = null
+            }
+
+
+
+
+        }
+    </script>
+
+</body>
+
+</html>

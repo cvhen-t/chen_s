@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var a = [2, 1, 32, 19, 15, 47, 8, 45, 67, 22, 34]
+        console.log(a)
+
+        for (var i = 0; i < a.length; i++) { //遍历所以数组元素
+            var min = i //记录最小数组最小下标值 假设 i号位就是最小元素
+
+            for (var j = i + 1; j < a.length; j++) { //j-i 因为 我已经假如 第0位是最小，所以i-1是进行下一位开始比较
+                if (a[j] < a[min]) {
+                    min = j //当我遇到比我小的元素时 我将值赋给最小的元素
+                }
+            }
+
+            if (min != i) { //当我元素min 的值不等于i的时候 等于最小值发生变化，我就进行换位
+
+                var temp = a[i];
+                a[i] = a[min];
+                a[min] = temp
+             
+            }
+        }
+
+        console.log(a)
+    </script>
+</body>
+
+</html>

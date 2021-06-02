@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+     
+ a{
+     text-decoration: none;
+ }
+ li{
+     list-style: none;
+ }
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>新闻</h1>
+        <ul id="newlist">
+        </ul>
+
+
+
+        <input type="text" id="tex">
+        <button id="btn">加入新闻</button>
+
+
+    </div>
+
+    <script>
+        var b = ['这是新闻1', '这是新闻2', '这是新闻3', '这是新闻4']
+
+        function new2() {
+            var str = ''
+            for (i = 0; i < b.length; i++) {
+                str += '<li><a  href="">' +(i+1)*1+'、'+ b[i] + '</a></li>' + '<br>'  
+            }
+            newlist.innerHTML = (str)
+        }
+        new2()
+
+        btn.onclick = function () {
+            var te = tex.value
+            b.shift(b[i])
+            b.push(te)
+            new2()
+            tex.value = ''
+            tex.focus();
+        }
+    </script>
+
+
+
+</body>
+
+</html>

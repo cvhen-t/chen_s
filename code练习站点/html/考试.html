@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <span id="sp"></span>
+    <script>
+        // 1.for循环输出1-100以内，逢5的数字，再用while做一遍
+        // 2.定义一个函数，逢几就出几，定义2个，1个有返回值，1个无返回值（直接输出）
+        //     var j = [];
+
+
+        // for循环实现---------------------------------------------
+        // var a = ''
+        // var res = []
+        // for (var i = 1; i < 101; i++) {
+        //     a = String(i)
+        //     if (a[0] == 5 || a[1] == 5 || i%5==0) {
+
+        //         res.push(a)
+
+        //     }
+        // }
+
+        // sp.innerText = (res)
+
+
+
+        // // while循环实现---------------------------------------------
+        var i = 1
+        var a = ''
+        var res = []
+        while (i <= 100) {
+            i++
+            a = String(i)
+            if (a[0] == 5 || a[1] == 5 || i % 5 == 0) {
+                res.push(a)
+            }
+        }
+
+        sp.innerText = (res)
+
+        // 函数 无返回值---------------------------------------
+
+        // function bei(shu) {
+        //     var a = ''
+        //     var res = []
+        //     for (var i = 1; i < 101; i++) {
+        //         a = String(i)
+        //         if (a[0] == shu || a[1] == shu || i%shu==0) {
+
+        //             res.push(a)
+
+        //         }
+        //     }
+        //     sp.innerText = (res)
+        //     }
+
+        //      bei(5)
+
+        // 函数 有返回值---------------------------------------
+
+
+        function bei(shu) {
+            var a = ''
+            var res = []
+            for (var i = 1; i < 101; i++) {
+                a = String(i)
+                if (a[0] == shu || a[1] == shu || i % shu == 0) {
+                    res.push(a)
+                }
+            }
+            return res
+        }
+        sp.innerText = (bei(5))
+
+        // 调用函数
+        // var m = bei(5)
+        bei(5).forEach(function (item) {
+            console.log(item)
+        })
+    </script>
+</body>
+
+</html>

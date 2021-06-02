@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../csc/css.css" />
+</head>
+
+<body>
+    <div class="banner">
+        <ul class="imgBox clearFix">
+            <li style="background-color: rgb(43, 174, 204)">1</li>
+            <li style="background-color: orange">2</li>
+            <li style="background-color: green">3</li>
+            <li style="background-color: pink">4</li>
+            <li style="background-color: yellow">5</li>
+        </ul>
+
+        <!-- 指示器存放处 -->
+        <ol class="pointBox"></ol>
+
+        <div class="leftRightTabs">
+            <a class="left">
+                <</a> <a class="right">>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // 最外层的盒子
+        const outBox = document.querySelector(".banner");
+
+        // 幻灯片slider所在的盒子 ul
+        const ulbox = outBox.querySelector("ul");
+
+        // 指示器容器
+        const olBox = outBox.querySelector("ol");
+
+        // 左右按钮
+        const lrbtn = document.querySelector(".leftRightTabs");
+
+        // 全部滑动页
+        const lis = document.querySelectorAll("ul>li");
+        const liwind = parseInt(window.getComputedStyle(lis[0]).width);
+
+
+
+
+
+        lrbtn.addEventListener("click", function (e) {
+
+
+            if (e.target.className == 'left') {
+                leftfun()
+                console.log('left')
+            }
+            if (e.target.className == 'right') {
+                rightfun()
+                console.log('fight')
+            }
+        })
+
+        var boxshu = 0
+
+        function leftfun() {
+
+            boxshu--
+            console.log(boxshu)
+            boxshu = boxshu < 0 ? 0 : boxshu;
+          
+
+            move(ulbox, -liwind * boxshu)
+
+        }
+
+        function rightfun() {
+
+            boxshu++
+            boxshu = boxshu > 4 ? 4 : boxshu;
+            console.log(boxshu)
+
+
+            move(ulbox, -liwind * boxshu)
+
+        }
+
+
+
+        function move(yunsu, newwind) {
+            var oldwind = parseInt(window.getComputedStyle(yunsu).left)
+
+            var windcha = (newwind - oldwind) / 50
+
+            var timeid = setInterval(function () {
+
+
+                oldwind += windcha
+                yunsu.style.left = oldwind + "px"
+
+                if (parseInt(yunsu.style.left) === newwind) {
+                    clearInterval(timeid)
+                }
+            }, 20);
+
+        }
+        for(i=1;i<=lis.length;i++){
+        var dian =document.createElement('li')
+        olBox.appendChild(dian)
+
+        }
+
+        olBox.onclick=function(){
+            
+        }
+     
+
+
+    </script>
+
+</body>
+
+</html>

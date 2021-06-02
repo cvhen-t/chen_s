@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Dict() {
+            // Object有什么属性 Dict的实例全有
+            Object.call(this)
+            this.size = 0
+        }
+
+        // Object有什么方法 Dict的实例全有
+        Dict.prototype = new Object()
+
+        Dict.prototype.set = function (key, value) {
+            this[key] = value
+            this.size++
+        }
+
+        Dict.prototype.get = function (key) {
+            return this[key]
+        }
+
+        Dict.prototype.has = function (key) {
+            // return this.hasOwnProperty(key)
+            return Object.prototype.hasOwnProperty.call(this, key)
+        }
+
+        Dict.prototype.delete = function (key) {
+            if (this.hasOwnProperty(key)) {
+                delete this[key]
+                this.size--
+            }
+        }
+
+        Dict.prototype.clear = function () {
+            for (const key in this) {
+                this.delete(key)
+            }
+            this.size = 0
+        }
+    </script>
+
+    <script>
+        const d = new Dict()
+        d.set("name", "张双蛋")
+        d.set("age", 18)
+        d.set("gender", "男")
+        console.log(d);
+
+        console.log(d.get("name"), d.get("age"), d.get("gender"));
+
+        d.delete("gender")
+        d.delete("sex")
+        console.log(d);
+
+        console.log(d.has("name"), d.has("gender"));
+
+        d.clear()
+        console.log(d);
+    </script>
+</body>
+
+</html>

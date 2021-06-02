@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a{
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <input type="number" id="num">
+    <button id="btn">成绩</button>
+    <button><a href="">重置</a></button>
+    <div id="res"></div>
+<script>
+
+var num=document.getElementById('num')
+var btn=document.getElementById('btn')
+var res=document.getElementById('res')
+
+
+
+btn.onclick=function(){
+
+    var _num = num.value*1;
+
+    // if方法实现
+    // if(_num>85 && _num<=100){
+
+    //     res.innerHTML='S'
+    // }else if(_num>=75&& _num<=85){
+    //     res.innerHTML='A'
+    // }else if(_num<75 && _num>=60){
+    //      res.innerHTML='B'
+
+    // }else if(_num<60){
+    //     res.innerHTML='c'
+    // }else if(_num>100){
+    //     res.innerHTML='滚'
+    // }
+
+    // switch方法实现
+
+  
+
+        switch(true){
+            case (_num>=1 && _num<=31):
+            res.innerHTML='一月'
+            break;
+            case (_num>=32&& _num<=59):
+            res.innerHTML='二月'
+            break;
+            case (_num>=60 && _num<=91):
+            res.innerHTML='三月'
+            break;
+            case (_num>=92 && _num<=122):
+            res.innerHTML='四月'
+            break;
+            case (_num>=123 && _num<=154):
+            res.innerHTML='五月'
+            break;
+            case (_num>=155 && _num<=184):
+            res.innerHTML='六月'
+            break;
+            case (_num>=185 && _num<=216):
+            res.innerHTML='七月'
+            break;
+            case (_num>=217 && _num<=247):
+            res.innerHTML='八月'
+            break;
+            case (_num>=248 && _num<=279):
+            res.innerHTML='九月'
+            break;
+            
+            default:
+                console.log(_num);
+                res.innerHTML='请输入合法值'
+        }
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

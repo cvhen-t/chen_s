@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="y2"  placeholder="输入验证码">
+    <span id="y1"></span>
+    <button id="y3">登录</button>
+    <script>
+
+        var jie 
+        function shiji (){
+            jie =num =parseInt (Math.random()*10000)  
+            return num
+        }
+        shiji();
+        y1.innerHTML = (jie)
+
+        // console.log(jie)
+
+        y1.onclick=function(){
+            y1.innerHTML=(shiji())
+        }
+       
+        y3.onclick= function(){
+
+            var _y2 = y2.value
+            if(jie==_y2 ){
+                alert('登录成功')
+            }else{
+                alert('登录失败')
+            }
+        }
+
+
+       
+    
+    </script>
+</body>
+</html>

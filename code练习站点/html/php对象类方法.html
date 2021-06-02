@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    ## 面向对象
+
+    ### 类
+
+    * 定义一个类
+    - 类使用 class 关键字后加上类名定义。
+    - 类名后的一对大括号{}内可以定义变量和方法。
+    - 类的变量使用 var 来声明, 变量也可以初始化值。
+    - 函数定义类似 PHP 函数的定义，但函数只能通过该类及其实例化的对象访问。
+
+    <?php
+    class Person{
+        // 成员属性
+        var $name;
+        var $age = 18;
+        
+        //成员方法
+        function setName($name){
+            $this->name = $name;
+        }
+
+        function getAge(){
+            return $this->age;   //使用方法 ->
+        }
+    }
+?>
+    访问控制
+
+    * public（公有）：公有的类成员可以在任何地方被访问（用于替换var）。
+    * protected（受保护）：受保护的类成员则可以被其自身以及其子类和父类访问。
+    * private（私有）：私有的类成员则只能被其定义所在的类访问。
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+
+    <style>
+        td {
+            width: 100px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        .red{
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="res"></div>
+    <table>
+        <header>
+            <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+            </tr>
+
+        </header>
+        <tbody id="box">
+
+        </tbody>
+
+
+    </table>
+
+
+    <script>
+        var a = [{
+                id: 1,
+                name: "Jack",
+                age: 18,
+                gender: "男",
+            },
+            {
+                id: 2,
+                name: "Rose",
+                age: 20,
+                gender: "女",
+            },
+            {
+                id: 3,
+                name: "Tom",
+                age: 22,
+                gender: "男",
+            },
+            {
+                id: 4,
+                name: "Jack",
+                age: 18,
+                gender: "男",
+            },
+            {
+                id: 5,
+                name: "Rose",
+                age: 20,
+                gender: "女",
+            },
+            {
+                id: 6,
+                name: "Tom",
+                age: 22,
+                gender: "男",
+            },
+        ]
+        const tb = document.getElementById('box')
+
+        for (i = 0; i < a.length; i++) {
+            let srt = '<tr>'
+            a.forEach(item => {
+
+                srt +=
+                    `<td> ${item.id}</td><td> ${item.name}</td><td> ${item.age}</td><td> ${item.gender}</td></tr>`
+
+            });
+            srt += ''
+            tb.innerHTML = srt
+
+        }
+     
+
+       
+
+
+
+    </script>
+
+
+</body>
+
+</html>

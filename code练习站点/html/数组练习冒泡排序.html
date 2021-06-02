@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var a = [1,32,19,15,47,8,19,45,67,22,34]
+        var  b
+
+            // 循环a.length次对比
+        for(i=1;i<a.length;i++){
+
+        // 进行循环一次全部对比
+        for(var j =0;j<a.length-i;j++){
+        //数组第0为与第一位进行对比，大的往后移动一位
+        if(a[j]>a[j+1]){
+           b= a[j]
+           a[j]=a[j+1]
+           a[j+1]=b
+          
+        }
+    }
+}
+console.log(a)
+
+
+    </script>
+
+
+
+
+
+</body>
+</html>
